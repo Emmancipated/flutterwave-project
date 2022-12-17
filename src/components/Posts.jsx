@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import PostCard from "./PostCard"
 
-const url = 'https://techcrunch.com/wp-json/wp/v2/posts'
+const url = process.env.REACT_APP_PUBLIC_URL || 'https://techcrunch.com/wp-json/wp/v2/posts'
 const cache = {};
 
 class Posts extends React.PureComponent {
