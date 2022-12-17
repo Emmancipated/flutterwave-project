@@ -51,5 +51,8 @@
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
