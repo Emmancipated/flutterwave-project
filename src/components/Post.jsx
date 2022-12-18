@@ -12,7 +12,7 @@ var relatedPosts = []; //for related posts
 
 //The main function that renders the selected post
 const Post = (url) => {
-    url = process.env.REACT_APP_PUBLIC_URL || 'https://techcrunch.com/wp-json/wp/v2/posts'
+    url = 'https://techcrunch.com/wp-json/wp/v2/posts'
     const [status, setStatus] = useState('idle');
     const [data, setData] = useState([]);
     const [id, setId] = useState(useParams().id);

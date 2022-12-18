@@ -11,7 +11,7 @@ class App extends React.Component {
       return (
          <>
          <p>Test Something</p>
-         <Router basename={process.env.REACT_APP_PUBLIC_URL}>
+         <Router basename={process.env.PUBLIC_URL}>
            <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/posts/:id" element={<Post />} />
