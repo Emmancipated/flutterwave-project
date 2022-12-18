@@ -10,7 +10,7 @@ class App extends React.Component {
    render() {
       return (
          <>
-         <Router basename="/flutterwave-project/">
+         <Router basename="/">
            <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/posts/:id" element={<Post />} />
