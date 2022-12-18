@@ -10,8 +10,7 @@ class App extends React.Component {
    render() {
       return (
          <>
-         <p>Test Something</p>
-         <Router basename={process.env.PUBLIC_URL}>
+         <Router basename="/flutterwave-project/">
            <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/posts/:id" element={<Post />} />
@@ -19,8 +18,8 @@ class App extends React.Component {
             </Routes>
             
          </Router>
-         
          </>); 
+         
    }
    
 };
