@@ -43,11 +43,12 @@ class Posts extends React.PureComponent {
   
 
     {data.map((item) => {
+        let author = item.parselyMeta["parsely-author"][0];
         let timeAgo = moment(item.parsely.meta.dateCreated).fromNow();
        return <article className="main-banner" key={item.id}>
            < PostCard 
            id={item.id}
-           author={item.parsely.meta.creator}
+           author={author}
            postTime={timeAgo}
            postTitle={item.title.rendered}
            postBody={item.content.rendered}

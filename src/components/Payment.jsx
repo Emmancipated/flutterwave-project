@@ -1,7 +1,6 @@
 import React from "react";
 import { useFlutterwave, closePaymentModal} from "flutterwave-react-v3";
 import Header from "./Header";
-import PostCard from "./PostCard";
 
 export default function PaymentPage() {
     const config = {
