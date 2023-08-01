@@ -46,8 +46,10 @@ const Post = (url) => {
     let openedPost = data && data.filter((post => post.id === Number(id)));
 
     let relatedPostCategory = openedPost.map(({categories}) => {
+
         let relArticles = data.filter(product => {
             let comparedCategory = product.categories.some(cat => categories.includes(cat));
+            
             return comparedCategory;
         })
          return relArticles;
@@ -56,15 +58,15 @@ const Post = (url) => {
     let [filterdPostCategory] = relatedPostCategory.map((post) => {
         return post.filter((post => post.id !== Number(id)));
     })
-
+    console.log(filterdPostCategory);
     return (
       <><Header />
 
         {data && openedPost.map((post) => {
-            let author = post.parselyMeta["parsely-author"][0];
+            let author = post["yoast_head_json"].author;
             return <div className="container" key={id}>  
             <div key={post.id}>
-                <p className="heading"> By {author} <span className="post-time">{moment(post.parsely.meta.dateCreated).fromNow()}</span></p>
+                <p className="heading"> By {author} <span className="post-time">{moment(post.date).fromNow()}</span></p>
                 <h2 className="post-head" dangerouslySetInnerHTML={{__html: post.title.rendered}}></h2>
             </div>
             <div className="content" >
@@ -83,12 +85,12 @@ const Post = (url) => {
 
         <div className="asider">
             {showMore && filterdPostCategory.map((post) => {
-                let author = post.parselyMeta["parsely-author"][0];
+                let author = post["yoast_head_json"].author;
                 return < PostCard 
                 id={post.id}
                 key={post.id}
                 author={author}
-                postTime={moment(post.parsely.meta.dateCreated).fromNow()}
+                postTime={moment(post.date).fromNow()}
                 postTitle={post.title.rendered}
                 postBody={post.content.rendered}
                 postImage={post.jetpack_featured_media_url}
